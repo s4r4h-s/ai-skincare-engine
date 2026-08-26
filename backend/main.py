@@ -38,8 +38,11 @@ def read_root():
 
 @app.get("/api/moisturizers")
 def get_all_moisturizers():
-    # Exclude _id and ingredient_vector to keep the payload clean and fast
-    products = list(collection.find({}, {"_id": 0, "ingredient_vector": 0}).limit(50))
+    # Exclude ingredient_vector to keep the payload clean and fast
+    products = list(collection.find({}, {"ingredient_vector": 0}).limit(50))
+    for p in products:
+        p["product_id"] = str(p["_id"])
+        del p["_id"]
     return products
 
 class RoutineRequest(BaseModel):
