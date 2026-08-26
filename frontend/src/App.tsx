@@ -6,6 +6,9 @@ interface Product {
   brand_name: string;
   price_usd: number;
   ingredients: string;
+  rating?: number;
+  reviews?: number;
+  loves_count?: number;
 }
 
 interface Conflict {
@@ -149,17 +152,42 @@ function App() {
                   <div className="flex-1">
                     <p className="text-xs font-bold text-indigo-500 uppercase tracking-wider mb-1">{product.brand_name}</p>
                     <h3 className="text-base font-semibold text-slate-900 leading-tight mb-2">{product.product_name}</h3>
+                    
+                    {/* Ratings & Reviews */}
+                    {product.rating && (
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="flex text-amber-400 text-sm">
+                          <span>{'★'.repeat(Math.round(product.rating))}</span>
+                          <span className="text-slate-200">{'★'.repeat(5 - Math.round(product.rating))}</span>
+                        </div>
+                        <span className="text-xs font-semibold text-slate-700">{product.rating.toFixed(1)}</span>
+                        <span className="text-xs text-slate-400">({product.reviews?.toLocaleString() || 0} reviews)</span>
+                      </div>
+                    )}
+
                     <p className="text-xs text-slate-500 line-clamp-2"><span className="font-medium text-slate-700">Ingredients:</span> {product.ingredients}</p>
                   </div>
-                  <div className="flex flex-col items-end gap-3 shrink-0">
+                  <div className="flex flex-col items-end gap-2 shrink-0">
                     <span className="font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-lg">${product.price_usd}</span>
+                    
+                    {/* Add to Routine Button */}
                     <button 
                       onClick={() => addToRoutine(product)}
                       disabled={routine.some(p => p.product_id === product.product_id)}
-                      className="px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded-xl hover:bg-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full"
+                      className="px-4 py-2 bg-slate-900 text-white text-xs font-medium rounded-xl hover:bg-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full shadow-sm"
                     >
-                      {routine.some(p => p.product_id === product.product_id) ? 'Added ✓' : '+ Add'}
+                      {routine.some(p => p.product_id === product.product_id) ? 'Added ✓' : '+ Routine'}
                     </button>
+                    
+                    {/* Sephora Shopping Link */}
+                    <a 
+                      href={`https://www.sephora.com/product/product-${product.product_id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-black/5 text-black hover:bg-black hover:text-white text-xs font-bold rounded-xl transition-colors w-full text-center border border-black/10"
+                    >
+                      Buy on Sephora ↗
+                    </a>
                   </div>
                 </div>
               </div>

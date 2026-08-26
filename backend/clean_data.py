@@ -14,7 +14,10 @@ def clean_sephora_data():
         "ingredients", 
         "price_usd", 
         "primary_category",
-        "secondary_category"
+        "secondary_category",
+        "rating",
+        "reviews",
+        "loves_count"
     ]
     df = df[columns_to_keep]
 
@@ -25,7 +28,19 @@ def clean_sephora_data():
     df = df.dropna(subset=["ingredients"])
 
     # 5. Convert the DataFrame into a list of dictionaries (MongoDB's native format)
-    cleaned_data = df.to_dict(orient="records")
+    raw_data = df.to_dict(orient="records")
+    
+    # Clean up NaN values (convert to None so JSON doesn't crash on NaN floats)
+    import math
+    cleaned_data = []
+    for row in raw_data:
+        clean_row = {}
+        for k, v in row.items():
+            if isinstance(v, float) and math.isnan(v):
+                clean_row[k] = None
+            else:
+                clean_row[k] = v
+        cleaned_data.append(clean_row)
 
     # 6. Save the perfectly formatted data to a new JSON file
     with open("clean_skincare_data.json", "w") as f:
