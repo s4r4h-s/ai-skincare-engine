@@ -1,0 +1,183 @@
+[
+    {
+        "_id": "64a7f8b9e4b0d1a2c3f4e001",
+        "brand": "CeraVe",
+        "name": "Daily Moisturizing Lotion",
+        "price": 14.99,
+        "size_oz": 12.0,
+        "texture": "lotion",
+        "recommended_skin_types": [
+            "normal",
+            "dry"
+        ],
+        "concerns_targeted": [
+            "dryness",
+            "barrier repair"
+        ],
+        "active_ingredients": [
+            "Ceramides",
+            "Hyaluronic Acid"
+        ],
+        "full_ingredient_list": [
+            "Purified Water",
+            "Glycerin",
+            "Caprylic/Capric Triglyceride",
+            "Cetearyl Alcohol",
+            "Cetyl Alcohol",
+            "Ceramide NP",
+            "Ceramide AP",
+            "Ceramide EOP",
+            "Hyaluronic Acid"
+        ],
+        "attributes": [
+            "fragrance-free",
+            "oil-free",
+            "non-comedogenic"
+        ],
+        "product_url": "https://example.com/cerave-lotion",
+        "image_url": "https://example.com/images/cerave.jpg"
+    },
+    {
+        "_id": "64a7f8b9e4b0d1a2c3f4e002",
+        "brand": "Neutrogena",
+        "name": "Hydro Boost Water Gel",
+        "price": 19.99,
+        "size_oz": 1.7,
+        "texture": "gel",
+        "recommended_skin_types": [
+            "oily",
+            "combination"
+        ],
+        "concerns_targeted": [
+            "dryness",
+            "oil control"
+        ],
+        "active_ingredients": [
+            "Hyaluronic Acid",
+            "Glycerin"
+        ],
+        "full_ingredient_list": [
+            "Water",
+            "Dimethicone",
+            "Glycerin",
+            "Dimethicone/Vinyl Dimethicone Crosspolymer",
+            "Sodium Hyaluronate"
+        ],
+        "attributes": [
+            "oil-free",
+            "non-comedogenic",
+            "lightweight"
+        ],
+        "product_url": "https://example.com/neutrogena-hydro-boost",
+        "image_url": "https://example.com/images/neutrogena.jpg"
+    },
+    {
+        "_id": "64a7f8b9e4b0d1a2c3f4e003",
+        "brand": "La Roche-Posay",
+        "name": "Toleriane Double Repair Face Moisturizer",
+        "price": 23.99,
+        "size_oz": 2.5,
+        "texture": "cream",
+        "recommended_skin_types": [
+            "dry",
+            "sensitive"
+        ],
+        "concerns_targeted": [
+            "redness",
+            "barrier repair"
+        ],
+        "active_ingredients": [
+            "Ceramides",
+            "Niacinamide",
+            "Prebiotic Thermal Water"
+        ],
+        "full_ingredient_list": [
+            "Water",
+            "Glycerin",
+            "Dimethicone",
+            "Hydrogenated Polyisobutene",
+            "Niacinamide",
+            "Ceramide NP"
+        ],
+        "attributes": [
+            "fragrance-free",
+            "oil-free",
+            "allergy-tested"
+        ],
+        "product_url": "https://example.com/larocheposay-toleriane",
+        "image_url": "https://example.com/images/larocheposay.jpg"
+    },
+    {
+        "_id": "64a7f8b9e4b0d1a2c3f4e004",
+        "brand": "Vanicream",
+        "name": "Daily Facial Moisturizer",
+        "price": 13.49,
+        "size_oz": 3.0,
+        "texture": "lotion",
+        "recommended_skin_types": [
+            "sensitive",
+            "normal",
+            "dry"
+        ],
+        "concerns_targeted": [
+            "dryness",
+            "sensitivity"
+        ],
+        "active_ingredients": [
+            "Hyaluronic Acid",
+            "Ceramides"
+        ],
+        "full_ingredient_list": [
+            "Purified Water",
+            "Squalane",
+            "Glycerin",
+            "Pentylene Glycol",
+            "Ceramide EOP",
+            "Ceramide NG"
+        ],
+        "attributes": [
+            "fragrance-free",
+            "dye-free",
+            "paraben-free",
+            "sulfate-free"
+        ],
+        "product_url": "https://example.com/vanicream-daily",
+        "image_url": "https://example.com/images/vanicream.jpg"
+    },
+    {
+        "_id": "64a7f8b9e4b0d1a2c3f4e005",
+        "brand": "Paula's Choice",
+        "name": "CLEAR Oil-Free Moisturizer",
+        "price": 29.00,
+        "size_oz": 2.0,
+        "texture": "lotion",
+        "recommended_skin_types": [
+            "oily",
+            "acne-prone"
+        ],
+        "concerns_targeted": [
+            "acne",
+            "large pores",
+            "redness"
+        ],
+        "active_ingredients": [
+            "Niacinamide",
+            "Ceramides"
+        ],
+        "full_ingredient_list": [
+            "Water",
+            "Ethyl Macadamiate",
+            "Cyclopentasiloxane",
+            "Niacinamide",
+            "Cetearyl Alcohol",
+            "Sodium Hyaluronate"
+        ],
+        "attributes": [
+            "oil-free",
+            "fragrance-free",
+            "pore-minimizing"
+        ],
+        "product_url": "https://example.com/paulaschoice-clear",
+        "image_url": "https://example.com/images/paulaschoice.jpg"
+    }
+]

@@ -1,0 +1,14 @@
+venv/
+backend/venv/
+__pycache__/
+*.pyc
+node_modules/
+moisturizer-finder/node_modules/
+moisturizer-finder/.vite/
+dist/
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
