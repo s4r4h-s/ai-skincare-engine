@@ -36,10 +36,14 @@ collection = db["moisturizers"]
 def read_root():
     return {"message": "AI-Powered Skincare Vector Search API is running!"}
 
-@app.get("/api/moisturizers")
-def get_all_moisturizers():
-    # Exclude ingredient_vector to keep the payload clean and fast
-    products = list(collection.find({}, {"ingredient_vector": 0}).limit(50))
+@app.get("/api/products")
+def get_all_products(category: str = None):
+    # Base query excludes vector field to keep payload clean and fast
+    query = {}
+    if category and category != "All":
+        query["secondary_category"] = category
+        
+    products = list(collection.find(query, {"ingredient_vector": 0}).limit(50))
     for p in products:
         p["product_id"] = str(p["_id"])
         del p["_id"]

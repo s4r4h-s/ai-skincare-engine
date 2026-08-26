@@ -28,9 +28,18 @@ function App() {
   const [evaluation, setEvaluation] = useState<EvaluationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Load initial products
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  
+  const categories = ["All", "Moisturizers", "Cleansers", "Treatments", "Eye Care", "Sun Care", "Masks"];
+
+  // Load products when category changes
   useEffect(() => {
-    fetch('http://localhost:8000/api/moisturizers')
+    setIsLoading(true);
+    const url = selectedCategory === 'All' 
+      ? 'http://localhost:8000/api/products' 
+      : `http://localhost:8000/api/products?category=${encodeURIComponent(selectedCategory)}`;
+      
+    fetch(url)
       .then((response) => {
         if (!response.ok) throw new Error('Failed to fetch data from backend');
         return response.json();
@@ -43,7 +52,7 @@ function App() {
         setError(err.message);
         setIsLoading(false);
       });
-  }, []);
+  }, [selectedCategory]);
 
   const addToRoutine = (product: Product) => {
     if (!routine.find(p => p.product_id === product.product_id)) {
@@ -112,10 +121,26 @@ function App() {
         
         {/* Left Column: Product Library */}
         <section className="bg-white/60 backdrop-blur-xl border border-white/40 rounded-3xl p-6 shadow-2xl flex flex-col h-[700px]">
-          <h2 className="text-2xl font-bold mb-6 text-slate-800 flex items-center gap-2">
+          <h2 className="text-2xl font-bold mb-4 text-slate-800 flex items-center gap-2">
             <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">{products.length}</span>
             Product Library
           </h2>
+
+          <div className="flex gap-2 overflow-x-auto pb-4 mb-2 custom-scrollbar">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap transition-colors ${
+                  selectedCategory === cat 
+                    ? 'bg-indigo-600 text-white shadow-md' 
+                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
           
           <div className="overflow-y-auto pr-2 space-y-4 flex-1 custom-scrollbar">
             {products.map(product => (

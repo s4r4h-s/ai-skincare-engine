@@ -13,7 +13,8 @@ def clean_sephora_data():
         "brand_name", 
         "ingredients", 
         "price_usd", 
-        "primary_category"
+        "primary_category",
+        "secondary_category"
     ]
     df = df[columns_to_keep]
 
